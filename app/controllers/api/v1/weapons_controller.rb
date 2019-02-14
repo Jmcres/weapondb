@@ -34,12 +34,8 @@ class Api::V1::WeaponsController < ApplicationController
   end
 
   def destroy
-    @weapon = Weapon.find(params[:id])
-    if @Weapon.destroy
-      render json:@weapons
-    end
+    @weapon.destroy
   end
-
 
   private
   

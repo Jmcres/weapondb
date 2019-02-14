@@ -15,18 +15,18 @@ ActiveRecord::Schema.define(version: 2019_02_10_203937) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "user_weapons", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "weapon_id"
+  end
+
   create_table "users", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
     t.string "username"
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users_weapons", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "weapon_id", null: false
-    t.index ["user_id", "weapon_id"], name: "index_users_weapons_on_user_id_and_weapon_id"
-    t.index ["weapon_id", "user_id"], name: "index_users_weapons_on_weapon_id_and_user_id"
   end
 
   create_table "weapons", force: :cascade do |t|

@@ -10,7 +10,6 @@ class Api::V1::UsersController < ApplicationController
 
   # GET /api/v1/users/:id
   def show
-    @user = User.find(params[:id])
     render json: @user, status: :ok
   end
 
@@ -34,16 +33,22 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    if @user.destroy
-      render json:@users
-    end
+    @user.destroy
   end
+
+  # def login 
+  #   @user = User.all.find_by (username: params[:username])
+  #   if @user.authenticate(param[:password])
+  #     render json @user
+  #   else
+  #     render json {status: "denied"}
+  #   end
+  # end
 
   private
   
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.permit(:username, :password, :firstname, :lastname)
   end
 
   def find_user

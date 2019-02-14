@@ -445,8 +445,9 @@ w2 = Weapon.create(
   )
 
   
-      userOne = User.create(username: "UserOne", password: "pass1")
-      userTwo = User.create(username: "UserTwo", password: "pass2")
-      userThree = User.create(username: "UserThree", password: "pass3")
+      userOne = User.create(username: "UserOne", firstname: "J1", lastname:'H1', password: "pass1")
+      userTwo = User.create(username: "UserTwo", firstname: "J2", lastname:'H2', password: "pass2")
+      userThree = User.create(username: "UserThree", firstname: "J3", lastname:'H3', password: "pass3")
+      
       
 
